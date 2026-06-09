@@ -31,7 +31,7 @@ import type {
     initialTitle = "",
     initialDescription = "",
     initialStatus = "To Do",
-    initialProperty = "Medium",
+    initialPriority = "Medium",
     initialDueDate = "",
 
     onSubmit,
@@ -55,6 +55,8 @@ import type {
     const [dueDate, setDueDate] = useState<TaskFormErrors>(
         {}
     );
+
+    const [errors, setErrors] = useState<TaskFormErrors>({});
 
     const handleSubmit = (
         e: React.FormEvent
