@@ -52,9 +52,7 @@ import type {
         initialPriority
     );
 
-    const [dueDate, setDueDate] = useState<TaskFormErrors>(
-        {}
-    );
+    const [dueDate, setDueDate] = useState(initialDueDate);
 
     const [errors, setErrors] = useState<TaskFormErrors>({});
 

@@ -45,7 +45,9 @@ export const TaskProvider = ({
         setTasks([...tasks, task]);
     };
 
-    const updateTask = (updateTask: Task) => {
+    const updateTask = (updatedTask: Task) => {
+
+        console.log(updatedTask);   // DELETE <----------------------------------------------------
         setTasks(
             tasks.map((task) =>
                 task.id === updatedTask.id
