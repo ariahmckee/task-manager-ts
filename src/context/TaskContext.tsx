@@ -1,11 +1,12 @@
 import {
     createContext,
     useContext,
+    useEffect,
     useState,
     ReactNode,
 } from "react";
 
-import { Task } from "../types/Task";
+import type { Task } from "../types/Task";
 
 interface TaskContextType {
     tasks: Task[];
@@ -24,7 +25,21 @@ export const TaskProvider = ({
 }: {
     children: ReactNode;
 }) => {
-    const [tasks, setTasks] = useState<Task[]>([]);
+    // const [tasks, setTasks] = useState<Task[]>([]);
+    const [tasks, setTasks] = useState<Task[]>(() => {
+        const saved = localStorage.getItem("tasks");
+
+        return saved
+            ? JSON.parse(saved)
+            : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem(
+            "tasks",
+            JSON.stringify(tasks)
+        );
+    }, [tasks]);
 
     const addTask = (task: Task) => {
         setTasks([...tasks, task]);
