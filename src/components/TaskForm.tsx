@@ -68,6 +68,11 @@ import type {
             newErrors.title = "Title is required";
         }
 
+        if (!description.trim()) {
+            newErrors.description = 
+            "Description is required";
+        }
+
         if (
             Object.keys(newErrors)
                 .length > 0
@@ -104,9 +109,7 @@ import type {
                 />
 
                 {errors.title && (
-                    <p>
-                        {errors.title}
-                    </p>
+                    <p>{errors.title}</p>
                 )}
             </div>
 
@@ -122,6 +125,10 @@ import type {
                         )
                     }
                 />
+
+                {errors.description && (
+                    <p>{errors.description}</p>
+                )}
             </div>
 
             <div>

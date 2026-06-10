@@ -8,10 +8,13 @@ import CreateTask from "./pages/CreateTask";
 import EditTask from "./pages/EditTask";
 import TaskDetails from "./pages/TaskDetails";
 import Login from "./pages/Login";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
+
       <Routes>
         <Route 
           path="/"
