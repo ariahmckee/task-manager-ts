@@ -30,7 +30,7 @@ export const TaskProvider = ({
         const saved = localStorage.getItem("tasks");
 
         return saved
-            ? JSON.parse(saved)
+            ? (JSON.parse(saved) as Task[])
             : [];
     });
 
@@ -47,7 +47,6 @@ export const TaskProvider = ({
 
     const updateTask = (updatedTask: Task) => {
 
-        console.log(updatedTask);   // DELETE <----------------------------------------------------
         setTasks(
             tasks.map((task) =>
                 task.id === updatedTask.id

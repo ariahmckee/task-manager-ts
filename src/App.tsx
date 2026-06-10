@@ -9,6 +9,8 @@ import EditTask from "./pages/EditTask";
 import TaskDetails from "./pages/TaskDetails";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import ProtectedRoute from "./auth/ProtectedRoute";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -18,27 +20,57 @@ function App() {
       <Routes>
         <Route 
           path="/"
-          element={<Dashboard />}
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
         />
 
         <Route 
           path="/create"
-          element={<CreateTask />}
+          element={
+            <ProtectedRoute>
+              <CreateTask />
+            </ProtectedRoute>
+          }
         />
 
         <Route 
           path="/edit/:id"
-          element={<EditTask />}
+          element={
+            <ProtectedRoute>
+              <EditTask />
+            </ProtectedRoute>
+          }
         />
 
         <Route 
           path="/task/:id"
-          element={<TaskDetails />}
+          element={
+            <ProtectedRoute>
+              <TaskDetails />
+            </ProtectedRoute>
+          }
         />
 
         <Route 
           path="/login"
           element={<Login />}
+        />
+
+        <Route 
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route 
+          path="*"
+          element={<NotFound />}
         />
 
       </Routes>

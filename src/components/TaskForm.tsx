@@ -68,9 +68,19 @@ import type {
             newErrors.title = "Title is required";
         }
 
+        if (title.trim().length < 3) {
+            newErrors.title = 
+            "Title must be at least 3 characters";
+        }
+
         if (!description.trim()) {
             newErrors.description = 
             "Description is required";
+        }
+
+        if (description.trim().length < 10) {
+            newErrors.description = 
+            "Description must be at least 10 characters";
         }
 
         if (
@@ -97,6 +107,9 @@ import type {
             }
         >
             <div>
+                <label>
+                    Title *
+                </label>
                 <input 
                     type="text" 
                     placeholder="Title"
@@ -114,6 +127,9 @@ import type {
             </div>
 
             <div>
+                <label>
+                    Description *
+                </label>
                 <textarea
                     placeholder="Description"
                     value={
